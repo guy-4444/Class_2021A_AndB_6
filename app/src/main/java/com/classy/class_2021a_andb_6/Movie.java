@@ -2,6 +2,7 @@ package com.classy.class_2021a_andb_6;
 
 public class Movie {
 
+    private String key = "";
     private String name = "";
     private String actor = "";
     private boolean inNetflix = false;
@@ -10,6 +11,15 @@ public class Movie {
 
 
     public Movie() { }
+
+    public String getKey() {
+        return key;
+    }
+
+    public Movie setKey(String key) {
+        this.key = key;
+        return this;
+    }
 
     public String getName() {
         return name;

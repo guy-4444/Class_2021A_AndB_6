@@ -14,6 +14,7 @@ public class DataGenerator {
         ArrayList<Movie> movies = new ArrayList<>();
 
         movies.add(new Movie()
+                .setKey("m001")
                 .setName("Inglourious Basterds")
                 .setActor("Brad Pitt")
                 .setInNetflix(true)
@@ -22,6 +23,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m002")
                 .setName("Bad Boys")
                 .setActor("Will Smith")
                 .setInNetflix(false)
@@ -30,6 +32,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m003")
                 .setName("JamesBond")
                 .setActor("Daniel")
                 .setInNetflix(true)
@@ -38,6 +41,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m004")
                 .setName("The Grinch Who Stole Christmas")
                 .setActor("Jim Carrey")
                 .setInNetflix(true)
@@ -46,6 +50,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m005")
                 .setName("Cinderalla")
                 .setActor("Jennifer Aniston")
                 .setInNetflix(true)
@@ -54,6 +59,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m006")
                 .setName("World War Z")
                 .setActor("Brad Pitt")
                 .setInNetflix(false)
@@ -62,6 +68,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m007")
                 .setName("The Lord of the Rings: The Fellowship of the Ring")
                 .setActor(" Elijah Wood")
                 .setInNetflix(true)
@@ -70,6 +77,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m008")
                 .setName("Forrest Gump")
                 .setActor("Tom Hanks")
                 .setInNetflix(true)
@@ -78,6 +86,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m009")
                 .setName("Jony English")
                 .setActor("Rowan Atkinson")
                 .setInNetflix(false)
@@ -86,6 +95,7 @@ public class DataGenerator {
         );
 
         movies.add(new Movie()
+                .setKey("m010")
                 .setName("Avengers End Game")
                 .setActor("Robert Downey Jr.")
                 .setInNetflix(false)

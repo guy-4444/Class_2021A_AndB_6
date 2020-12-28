@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
+import okhttp3.HttpUrl;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -13,9 +14,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MovieController implements Callback<List<Movie>> {
 
-    static final String BASE_URL = "https://pastebin.com/raw/";
+    static final String BASE_URL = "https://dev-api.com/myMoviesApp/";
 
-    public void start() {
+    public void fetchAllMovies() {
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();

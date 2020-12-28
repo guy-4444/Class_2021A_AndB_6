@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -15,6 +16,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -27,6 +29,9 @@ import retrofit2.http.Url;
 public class MainActivity extends AppCompatActivity {
 
     private MaterialButton main_BTN_downloadMovies;
+    private MaterialButton main_BTN_downloadMovie1;
+    private MaterialButton main_BTN_downloadMovie2;
+    private MaterialTextView main_LBL_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +39,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         main_BTN_downloadMovies = findViewById(R.id.main_BTN_downloadMovies);
+        main_BTN_downloadMovie1 = findViewById(R.id.main_BTN_downloadMovie1);
+        main_BTN_downloadMovie2 = findViewById(R.id.main_BTN_downloadMovie2);
+        main_LBL_info = findViewById(R.id.main_LBL_info);
         main_BTN_downloadMovies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                downloadStats();
+                downloadMovies();
+            }
+        });
+        main_BTN_downloadMovie1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                downloadMovie("m001");
+            }
+        });
+        main_BTN_downloadMovie2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                downloadMovie("m002");
             }
         });
     }
@@ -54,7 +74,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void downloadMovies() {
-        MovieController movieController = new MovieController();
-        movieController.start();
+        new MovieControllerPro().fetchAllMovies(new MovieControllerPro.CallBack_Movies() {
+            @Override
+            public void movies(List<Movie> movies) {
+                main_LBL_info.setText("Movies Size = " + movies.size());
+            }
+        });
+    }
+
+    private void downloadMovie(String key) {
+        new MovieControllerPro().fetchMovieByKey(key, new MovieControllerPro.CallBack_Movie() {
+            @Override
+            public void movie(Movie movie) {
+                main_LBL_info.setText("Movie = " + movie.getName());
+            }
+        });
     }
 }
